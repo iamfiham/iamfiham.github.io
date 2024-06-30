@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+::after,
+::before {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    list-style-type: none;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    scroll-behavior: smooth;
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+html {
+    --bg-color: rgba(16, 16, 16);
+    background-color: var(--bg-color);
+    color: rgb(245, 245, 245);
+}
+@layer utilities {
+    .text-glow {
+        text-shadow:
+            0 0 5px rgba(255, 255, 255, 0.17),
+            0 0 10px rgba(255, 255, 255, 0.17),
+            0 0 15px rgba(255, 255, 255, 0.17);
+    }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgb(30, 30, 30);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(50, 50, 50);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(60, 60, 60);
+}
+::-webkit-scrollbar-button {
+    background: rgb(30, 30, 30);
+    height: 15px;
+}
