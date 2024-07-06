@@ -36,21 +36,28 @@ html {
             0 0 10px rgba(255, 255, 255, 0.16),
             0 0 15px rgba(255, 255, 255, 0.16);
     }
+    .transition-cursor {
+        transition:
+            opacity 0.5s cubic-bezier(0, 0.95, 0.15, 0.98),
+            font-size 2s cubic-bezier(0, 0.95, 0.15, 0.98),
+            top 1s cubic-bezier(0, 0.95, 0.15, 0.98),
+            left 1s cubic-bezier(0, 0.95, 0.15, 0.98);
+    }
 }
 
 ::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
 }
 ::-webkit-scrollbar-track {
-    background: rgb(30, 30, 30);
+    background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-    background: rgb(50, 50, 50);
+    background: rgb(40, 40, 40);
 }
 ::-webkit-scrollbar-thumb:hover {
     background: rgb(60, 60, 60);
 }
 ::-webkit-scrollbar-button {
-    background: rgb(30, 30, 30);
+    background: transparent;
     height: 15px;
 }

@@ -1,5 +1,5 @@
 import road from "../assets/road.jpg";
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -32,6 +32,7 @@ function Home() {
             yPercent: 20,
         });
     });
+
     return (
         <div className="flex min-h-dvh flex-col" ref={target}>
             <NavBar />
@@ -43,7 +44,7 @@ function Home() {
                         className="absolute bottom-0 left-0 z-10 h-[125%] w-full scale-110 rounded-lg object-cover"
                         ref={element}
                     />
-                    <div className="absolute left-0 top-0 z-20 grid h-full w-full place-items-center bg-gradient-to-b from-black/50 to-black/70 transition-all duration-500 group-hover:opacity-0">
+                    <div className="absolute left-0 top-0 z-20 grid h-full w-full place-items-center bg-gradient-to-b from-black/50 to-black/70 opacity-0 transition-all duration-500 group-hover:opacity-100">
                         <div>
                             <p className="mb-2 text-sm/none text-neutral-400">Freelancer</p>
                             <h3 className="text-base/none font-medium">2021 - Present Day</h3>
