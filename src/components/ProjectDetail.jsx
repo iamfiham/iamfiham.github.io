@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import image from "../assets/image.png";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -11,18 +11,21 @@ function ProjectDetail() {
     gsap.registerPlugin(useGSAP, ScrollTrigger);
 
     useGSAP(() => {
-        const elementRectHeight = element.current.getBoundingClientRect().height;
-        const targetRectHeight = target.current.getBoundingClientRect().height;
-        const final = targetRectHeight - elementRectHeight;
+        const calculation = () => {
+            const elementRectHeight = element.current.getBoundingClientRect().height;
+            const targetRectHeight = target.current.getBoundingClientRect().height;
+            const final = targetRectHeight - elementRectHeight;
+            return `${final} 130px`;
+        };
 
         let tl = gsap.timeline({
             scrollTrigger: {
                 trigger: target.current,
                 start: "0% 130px",
-                end: "100% 130px",
+                end: calculation(),
                 scrub: 1,
                 // scrub: false,
-                markers: true,
+                // markers: true,
                 pin: element.current,
                 // toggleActions: "play reverse play reverse",
             },
@@ -53,7 +56,7 @@ function ProjectDetail() {
                     aspects of Material Design with Stadia’s design system (Figure 6.0).
                 </p>
             </div>
-            <img src={image} alt="image" className="w-full rounded-xl border border-solid border-neutral-800 object-cover" />
+            <img src={image} alt="image" className="mx-auto w-full max-w-[750px] rounded-xl border border-solid border-neutral-800 object-cover" />
         </div>
     );
 }

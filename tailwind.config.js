@@ -6,6 +6,10 @@ export default {
             boxShadow: {
                 glow: "0px 0px 20px rgba(255,255,255)",
             },
+            fontFamily: {
+                lato: "'Lato', sans-serif",
+                opensans: "'Open Sans', sans-serif",
+            },
         },
     },
     plugins: [],
