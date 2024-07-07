@@ -5,7 +5,7 @@ import tailwindcss from "tailwindcss";
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [react()],
-    base: "/modern-portfolio/",
+    base: "",
     css: {
         postcss: {
             plugins: [tailwindcss()],

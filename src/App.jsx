@@ -7,6 +7,7 @@ import Footer from "./layouts/Footer";
 function App() {
     return (
         <div>
+            {/* <div className="overflow-hidden"> */}
             <div className="px-4">
                 <Home />
             </div>
@@ -14,7 +15,7 @@ function App() {
             <div className="mx-auto w-[min(1280px,_100%)] px-4">
                 <ProjectSection />
             </div>
-            <div className="mt-28 h-[1px] bg-white/10" />
+            <div className="mt-28 h-[1px] bg-white/5" />
             <div className="mx-auto w-[min(1280px,_100%)] px-4">
                 <Footer />
             </div>

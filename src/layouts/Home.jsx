@@ -1,43 +1,74 @@
 import road from "../assets/road.jpg";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import NavBar from "../components/NavBar";
+import { motion } from "framer-motion";
 
 function Home() {
     const element = useRef(null);
     const target = useRef(null);
+    const imageContainerRef = useRef(null);
+    const headingRef = useRef(null);
+    const [headingContentArray, setHeadingContentArray] = useState([]);
+    const headingContent =
+        "I'm a Mohamed Fiham — based frontend developer. I specialise in crafting seamless and interactive web experiences with talented collaborators.";
+
+    useLayoutEffect(() => {
+        const trimmedContent = headingContent.trim();
+        const words = trimmedContent.split(" ");
+        setHeadingContentArray(words);
+    }, []);
 
     gsap.registerPlugin(useGSAP, ScrollTrigger);
 
     useGSAP(() => {
-        const calculation = () => {
-            const headingTextHeight = headingText.current.getBoundingClientRect().height;
-            return headingTextHeight;
-        };
+        gsap.fromTo(
+            imageContainerRef.current,
+            {
+                clipPath: "circle(0% at 50% 50%)",
+            },
+            {
+                clipPath: "circle(100% at 50% 50%)",
+                duration: 3,
+                ease: "power4.inOut",
+                delay: 0.75,
+            },
+        );
         let tl = gsap.timeline({
             scrollTrigger: {
                 trigger: target.current,
                 start: "0% 0%",
                 end: "100% 0%",
                 scrub: 1,
-                // scrub: false,
-                // markers: true,
-                // toggleActions: "play reverse play reverse",
             },
         });
         tl.to(element.current, {
-            // scale: 2,
             yPercent: 20,
         });
     });
 
+    const animation = {
+        visible: {
+            opacity: 1,
+            transition: { when: "beforeChildren", staggerChildren: 0.1, duration: 0, delay: 1.5 },
+        },
+        hidden: {
+            opacity: 0,
+            transition: { when: "afterChildren" },
+        },
+    };
+    const noteCardVariants = {
+        visible: { opacity: 1, y: 0 },
+        hidden: { opacity: 0, y: 25 },
+    };
+
     return (
-        <div className="flex min-h-dvh flex-col" ref={target}>
+        <div className="flex min-h-screen flex-col" ref={target}>
             <NavBar />
             <div className="flex w-[min(100%,_1024px)] flex-1 grid-cols-1 flex-col items-center gap-12 self-center py-8 md:grid md:grid-cols-2">
-                <div className="group relative h-full w-full flex-1 overflow-hidden rounded-lg">
+                <div className="group relative h-full w-full flex-1 overflow-hidden rounded-lg" ref={imageContainerRef}>
                     <img
                         src={road}
                         alt="Home Image"
@@ -51,10 +82,27 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <h2 className="self-start text-3xl/[1.1] font-medium tracking-tighter text-neutral-200 md:self-center">
-                    I'm a Mohamed Fiham — based frontend developer. I specialise in crafting seamless and interactive web experiences with talented
-                    collaborators.
-                </h2>
+                {headingContentArray.length > 0 && (
+                    <motion.h2
+                        initial="hidden"
+                        animate="visible"
+                        variants={animation}
+                        className="row-gap column-gap flex flex-wrap self-start md:self-center"
+                        ref={headingRef}
+                    >
+                        {headingContentArray.map((word, index) => (
+                            <span key={index} className="overflow-hidden">
+                                <motion.span
+                                    variants={noteCardVariants}
+                                    transition={{ ease: "easeOut", duration: 0.5 }}
+                                    className="inline-block text-3xl/none font-medium tracking-tighter text-neutral-200"
+                                >
+                                    {word}
+                                </motion.span>
+                            </span>
+                        ))}
+                    </motion.h2>
+                )}
             </div>
         </div>
     );
