@@ -6,8 +6,7 @@ import Footer from "./layouts/Footer";
 
 function App() {
     return (
-        <div>
-            {/* <div className="overflow-hidden"> */}
+        <div className="overflow-hidden">
             <div className="px-4">
                 <Home />
             </div>
