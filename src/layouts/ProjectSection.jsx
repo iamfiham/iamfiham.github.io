@@ -42,7 +42,7 @@ function ProjectSection() {
     }, [isTextSplited]);
 
     return (
-        <div className="grid grid-cols-1 gap-16 md:grid-cols-[1fr_2fr]" ref={projectSectionRef}>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-[3fr_4fr] md:gap-16" ref={projectSectionRef}>
             <div>
                 <div ref={heading}>
                     <motion.h5
@@ -55,7 +55,8 @@ function ProjectSection() {
                         SHOWCASE OF WORK
                     </motion.h5>
                     <SplitedHeading setIsTextSplited={setIsTextSplited}>
-                        Each project reflects my commitment to delivering innovative and high-quality digital solutions tailored to your needs.
+                        Each project reflects my commitment to transforming creative ideas into engaging, interactive
+                        interfaces, delivering high-quality digital solutions.
                     </SplitedHeading>
                 </div>
             </div>

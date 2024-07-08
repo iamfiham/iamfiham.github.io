@@ -14,14 +14,16 @@ function JourneySection() {
             >
                 MY JOURNEY
             </motion.h5>
-            <div className="grid grid-cols-1 gap-12 md:grid-cols-2 md:gap-16">
+            <div className="grid grid-cols-1 gap-12 md:grid-cols-[3fr_4fr] md:gap-16">
                 <SplitedHeading>
-                    I am a forward-thinking web developer dedicated to crafting exceptional digital solutions for your needs.
+                    I am a forward-thinking web developer dedicated to crafting exceptional digital solutions for your
+                    needs.
                 </SplitedHeading>
                 <p className="col-start-auto row-start-auto text-lg text-neutral-400 md:col-start-2 md:row-start-2">
-                    As a specialist in web development, I leverage my expertise and innovative approach to every project I undertake. Showcasing a
-                    deep understanding of the intricate relationship between functionality and user experience, I address each challenge with a
-                    holistic mindset, ensuring that every aspect of my development is not only aesthetically pleasing but also performs seamlessly.
+                    As a specialist in web development, I leverage my expertise and innovative approach to every project
+                    I undertake. Showcasing a deep understanding of the intricate relationship between functionality and
+                    user experience, I address each challenge with a holistic mindset, ensuring that every aspect of my
+                    development is not only aesthetically pleasing but also performs seamlessly.
                 </p>
             </div>
         </div>

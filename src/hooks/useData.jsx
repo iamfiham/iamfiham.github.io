@@ -1,26 +1,30 @@
-import video from "../assets/projects/video.mp4";
+import video from "../assets/projects/video.webm";
 
 function useData() {
     const allProjects = [
         {
             video: video,
             heading: "Note Taking App",
-            subHeading: " Built with React for Seamless User Experience and Efficient Information Organization",
-            year: "10th August, 2021",
+            subHeading: "Built with React for Seamless User Experience and Efficient Information Organization",
+            year: "2021",
+            type: "Softwere",
             url: "https://iamfiham.github.io/note-taking-app/",
         },
         {
             video: video,
             heading: "E-Commerce Website",
-            subHeading: "Leveraging React and Firebase for Dynamic Shopping Experiences and Seamlessly Managed Transactions",
-            year: "5th November, 2022",
+            subHeading:
+                "Leveraging React and Firebase for Dynamic Shopping Experiences and Seamlessly Managed Transactions",
+            year: "2022",
+            type: "Softwere",
             url: "https://iamfiham.github.io/e-commerce/",
         },
         {
             video: video,
             heading: "Portfolio Site",
             subHeading: "Crafted with React for a Dynamic and Engaging Presentation of Skills and Projects",
-            year: "21th May, 2023",
+            year: "2023",
+            type: "Softwere",
             url: "https://iamfiham.github.io/portfolio/",
         },
     ];

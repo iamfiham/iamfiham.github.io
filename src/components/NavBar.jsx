@@ -23,7 +23,7 @@ function NavBar() {
                 duration: 2,
                 ease: "power3.out",
                 autoAlpha: 1,
-                delay: 1.25,
+                delay: 2,
             },
         );
     });
@@ -31,7 +31,10 @@ function NavBar() {
     return (
         <div className="flex items-center gap-3 px-0 py-4 sm:px-4" ref={navBarRef}>
             <img src={logo} alt="" className="w-[14px]" />
-            <h2 className="mr-auto font-opensans text-base/none font-semibold tracking-tight text-neutral-200"> Mohamed Fiham</h2>
+            <h2 className="mr-auto font-opensans text-base/none font-semibold tracking-tight text-neutral-200">
+                {" "}
+                Mohamed Fiham
+            </h2>
             <ul className="hidden gap-8 text-sm/none text-neutral-300 sm:flex">
                 <a href="mailto:xyzfiham@gmail.com" target="_blank" rel="noopener noreferrer">
                     <li className="group flex cursor-pointer items-center gap-1 font-medium transition-all duration-300 hover:opacity-70">
