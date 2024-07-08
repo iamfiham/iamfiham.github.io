@@ -33,7 +33,7 @@ function ProjectDetail() {
     });
 
     return (
-        <div className="py-28">
+        <div>
             <div className="mb-10 flex items-center gap-3">
                 <span className="inline-block aspect-square w-[10px] rounded-full bg-neutral-200 shadow-glow"></span>
                 <p className="text-[11px] font-semibold tracking-wide text-neutral-500">VISUAL DESIGN DIRECTION</p>

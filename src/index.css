@@ -43,11 +43,14 @@ html {
             top 1s cubic-bezier(0, 0.95, 0.15, 0.98),
             left 1s cubic-bezier(0, 0.95, 0.15, 0.98);
     }
-    .row-gap {
-        row-gap: 0rem;
+    .negative-margin {
+        margin-bottom: -0.3rem;
     }
     .column-gap {
         column-gap: 0.5rem;
+    }
+    .row-gap {
+        row-gap: 0rem;
     }
 }
 

@@ -53,15 +53,15 @@ function ProjectCard({ heading, subHeading, video, url, year }) {
     });
     return (
         <a href={url} target="_blank" rel="noopener noreferrer" className="group">
-            <div ref={card} className="relative origin-top">
+            <div ref={card} className="relative origin-top overflow-hidden rounded-md">
                 <div
-                    className={`absolute left-0 right-0 flex h-full w-full flex-col bg-gradient-to-t from-black/80 via-black/60 to-black/30 p-6 transition-all duration-300 sm:p-8 ${isTouchDevice ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+                    className={`absolute left-0 right-0 flex h-full w-full flex-col p-4 transition-all duration-300 sm:p-8 ${isTouchDevice ? "bg-transparent opacity-100" : "bg-gradient-to-t from-black/80 via-black/60 to-black/30 opacity-0 group-hover:opacity-100"}`}
                 >
                     <p className="mb-2 mt-auto text-sm/none text-neutral-400">{year}</p>
                     <h4 className="mb-2 text-xl/snug font-medium tracking-tighter text-neutral-200">{heading}</h4>
-                    <p className="max-w-[500px] text-base/snug tracking-tight text-neutral-400">{subHeading}</p>
+                    <p className="max-w-[500px] text-base/snug text-neutral-400">{subHeading}</p>
                 </div>
-                <div className="aspect-square overflow-hidden rounded sm:aspect-video">
+                <div className="aspect-square overflow-hidden sm:aspect-video">
                     <video muted loop controls={false} className="h-full w-full object-cover" ref={videoRef}>
                         <source src={video} />
                     </video>

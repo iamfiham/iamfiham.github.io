@@ -38,10 +38,6 @@ function useData() {
             website: "Fiverr",
             link: "https://www.fiverr.com/s/jjeQ0bw",
         },
-        {
-            website: "Read.cv",
-            link: "/",
-        },
     ];
 
     return { allProjects, socialMedia };

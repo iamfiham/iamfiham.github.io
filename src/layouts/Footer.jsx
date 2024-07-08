@@ -5,8 +5,8 @@ import useData from "../hooks/useData";
 function Footer() {
     const { socialMedia } = useData();
     return (
-        <div className="pb-8 pt-16">
-            <div className="mb-16 flex flex-col justify-between gap-8 sm:flex-row">
+        <div className="pb-4">
+            <div className="mb-12 mt-16 flex flex-col justify-between gap-8 sm:flex-row">
                 <div className="flex flex-col items-start gap-2">
                     {socialMedia.map((social, index) => (
                         <a href={social.link} target="_blank" rel="noopener noreferrer" key={index}>
@@ -17,17 +17,25 @@ function Footer() {
                         </a>
                     ))}
                 </div>
-                <div>
-                    <h3 className="font-opensans text-lg font-semibold tracking-tight text-neutral-200">Let's build something together.</h3>
+                <div className="flex flex-col">
+                    <h3 className="mb-2 font-opensans text-lg font-semibold tracking-tight text-neutral-200">Let's build something together.</h3>
                     <a href="mailto:xyzfiham@gmail.com" target="_blank" rel="noopener noreferrer">
                         <button className="group relative font-opensans text-base font-medium tracking-tight text-neutral-400">
                             xyzfiham@gmail.com
-                            <span className="absolute -bottom-1 left-0 block h-[2px] w-0 bg-neutral-500 transition-all duration-500 group-hover:w-full" />
+                            <span className="absolute bottom-0 left-0 block h-[2px] w-0 bg-neutral-500 transition-all duration-500 group-hover:w-full" />
+                        </button>
+                    </a>
+                    <a href="" target="_blank" rel="noopener noreferrer">
+                        <button className="group relative font-opensans text-base font-medium tracking-tight text-neutral-400">
+                            Resume
+                            <span className="absolute bottom-0 left-0 block h-[2px] w-0 bg-neutral-500 transition-all duration-500 group-hover:w-full" />
                         </button>
                     </a>
                 </div>
             </div>
-            <h5 className="text-center font-opensans text-sm/none font-medium text-neutral-500">© 2024 All Rights Reserved by Mohamed Fiham.</h5>
+            <h5 className="text-center font-opensans text-sm/tight text-neutral-500">
+                © 2024 All Rights Reserved by <br /> <span className="font-medium text-neutral-300">Mohamed Fiham.</span>
+            </h5>
         </div>
     );
 }

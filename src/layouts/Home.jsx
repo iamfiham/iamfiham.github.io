@@ -27,10 +27,10 @@ function Home() {
         gsap.fromTo(
             imageContainerRef.current,
             {
-                clipPath: "circle(0% at 50% 50%)",
+                clipPath: " inset(50% 50% 50% 50% round 8px)",
             },
             {
-                clipPath: "circle(100% at 50% 50%)",
+                clipPath: "inset(0% 0% 0% 0% round 8px)",
                 duration: 3,
                 ease: "power4.inOut",
                 delay: 0.75,
@@ -60,12 +60,20 @@ function Home() {
         },
     };
     const noteCardVariants = {
-        visible: { opacity: 1, y: 0 },
-        hidden: { opacity: 0, y: 25 },
+        visible: {
+            opacity: 1,
+            clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
+            y: "0%",
+        },
+        hidden: {
+            opacity: 0,
+            clipPath: "polygon(0 0, 100% 0, 100% 0, 0 0)",
+            y: "100%",
+        },
     };
 
     return (
-        <div className="flex min-h-screen flex-col" ref={target}>
+        <div className="flex min-h-svh flex-col" ref={target}>
             <NavBar />
             <div className="flex w-[min(100%,_1024px)] flex-1 grid-cols-1 flex-col items-center gap-12 self-center py-8 md:grid md:grid-cols-2">
                 <div className="group relative h-full w-full flex-1 overflow-hidden rounded-lg" ref={imageContainerRef}>
@@ -91,15 +99,14 @@ function Home() {
                         ref={headingRef}
                     >
                         {headingContentArray.map((word, index) => (
-                            <span key={index} className="overflow-hidden">
-                                <motion.span
-                                    variants={noteCardVariants}
-                                    transition={{ ease: "easeOut", duration: 0.5 }}
-                                    className="inline-block text-3xl/none font-medium tracking-tighter text-neutral-200"
-                                >
-                                    {word}
-                                </motion.span>
-                            </span>
+                            <motion.span
+                                key={index}
+                                variants={noteCardVariants}
+                                transition={{ ease: "easeOut", duration: 0.5 }}
+                                className="negative-margin inline-block text-3xl/[1.2] font-medium tracking-tighter text-neutral-200"
+                            >
+                                {word}
+                            </motion.span>
                         ))}
                     </motion.h2>
                 )}
