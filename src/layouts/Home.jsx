@@ -1,4 +1,5 @@
 import road from "../assets/road.jpg";
+import desktop from "../assets/desktop.jpg";
 import React, { useLayoutEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -8,6 +9,7 @@ import { motion } from "framer-motion";
 
 function Home() {
     const homeImageRef = useRef(null);
+    const homeImageTextRef = useRef(null);
     const homeSectionRef = useRef(null);
     const imageContainerRef = useRef(null);
     const headingRef = useRef(null);
@@ -30,17 +32,19 @@ function Home() {
                 clipPath: " inset(20% 50% 100% 50% round 8px)",
             },
             {
-                clipPath: "inset(0% 0% 0% 0% round 8px)",
+                // clipPath: "inset(0% 0% 0% 0% round 8px)",
+                clipPath: "inset(0% 20% 40% 20% round 8px)",
                 duration: 3,
                 ease: "power4.inOut",
                 delay: 0.5,
             },
         );
+
         let tl = gsap.timeline({
             scrollTrigger: {
                 trigger: homeSectionRef.current,
                 start: "0% 0%",
-                end: "100% 0%",
+                end: "100% 70%",
                 scrub: 1,
             },
         });
@@ -52,7 +56,28 @@ function Home() {
             {
                 yPercent: 35,
             },
-        );
+            0,
+        )
+            .fromTo(
+                imageContainerRef.current,
+                {
+                    clipPath: "inset(0% 20% 40% 20% round 8px)",
+                },
+                {
+                    clipPath: "inset(0% 0% 0% 0% round 8px)",
+                },
+                0,
+            )
+            .fromTo(
+                homeImageTextRef.current,
+                {
+                    height: "60%",
+                },
+                {
+                    height: "100%",
+                },
+                0,
+            );
     });
 
     const titleAnimationVariants = {
@@ -111,17 +136,17 @@ function Home() {
                     </motion.h2>
                 )}
                 <div
-                    className="group relative aspect-square w-full max-w-[1024px] overflow-hidden rounded-lg bg-gradient-to-br from-red-700 to-red-800 sm:aspect-video"
+                    className="group relative aspect-square w-full max-w-[1280px] overflow-hidden rounded-lg sm:aspect-video"
                     ref={imageContainerRef}
                 >
                     <img
-                        src={road}
+                        src={desktop}
                         alt="Home Image"
-                        className="absolute bottom-0 left-0 h-[160%] w-full bg-yellow-500 object-cover object-center"
+                        className="absolute bottom-0 left-0 h-[160%] w-full object-cover object-center"
                         ref={homeImageRef}
                     />
-                    <div className="absolute left-0 top-0 z-20 grid h-full w-full place-items-center bg-gradient-to-b from-black/50 to-black/70 opacity-0 transition-all duration-500 group-hover:opacity-100">
-                        <span>
+                    <div className="absolute left-0 top-0 z-20 grid h-full w-full justify-center bg-gradient-to-b from-black/50 to-black/70 opacity-0 transition-all duration-500 group-hover:opacity-100">
+                        <span ref={homeImageTextRef} className="flex h-full flex-col justify-center">
                             <p className="mb-2 text-sm/none text-neutral-400">Freelancer</p>
                             <h3 className="text-base/none font-medium">2021 - Present Day</h3>
                         </span>

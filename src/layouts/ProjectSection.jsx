@@ -60,7 +60,7 @@ function ProjectSection() {
                     </SplitedHeading>
                 </div>
             </div>
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-12">
                 {allProjects.map((project, index) => (
                     <ProjectCard key={index} {...project} />
                 ))}
