@@ -109,8 +109,7 @@ function Home() {
     };
 
     return (
-        // <div className="flex min-h-svh flex-col" ref={homeSectionRef}>
-        <main className="flex min-h-svh flex-col" ref={homeSectionRef}>
+        <main className="flex flex-col" ref={homeSectionRef}>
             <NavBar />
             <div className="h-16 sm:h-20 md:h-28" />
             <section className="grid grid-cols-1 justify-items-center gap-12">
