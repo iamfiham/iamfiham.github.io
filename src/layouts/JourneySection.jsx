@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import SplitedHeading from "../components/SplitedHeading";
 import { motion } from "framer-motion";
 import { useGSAP } from "@gsap/react";
@@ -9,13 +9,17 @@ function JourneySection() {
     const sectionCaption = useRef();
 
     gsap.registerPlugin(useGSAP, ScrollTrigger);
+    const [isSplited, setIsSplited] = useState(false);
 
     useGSAP(() => {
+        if (!isSplited) {
+            return;
+        }
         let tl = gsap.timeline({
             scrollTrigger: {
                 trigger: sectionCaption.current,
-                start: "0% 80%",
-                end: "100% 15%",
+                start: "0% 90%",
+                end: "100% 10%",
                 scrub: false,
                 toggleActions: "play reverse play reverse",
             },
@@ -35,7 +39,7 @@ function JourneySection() {
                 ease: "power4.inOut",
             },
         );
-    });
+    }, [isSplited]);
     return (
         <article>
             <motion.h5
@@ -48,7 +52,7 @@ function JourneySection() {
                 MY JOURNEY
             </motion.h5>
             <section className="grid grid-cols-1 gap-12 md:grid-cols-[3fr_4fr] md:gap-16">
-                <SplitedHeading>
+                <SplitedHeading setIsSplited={setIsSplited}>
                     I am a forward-thinking web developer dedicated to crafting exceptional digital solutions for your
                     needs.
                 </SplitedHeading>

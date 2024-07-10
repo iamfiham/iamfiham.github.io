@@ -1,22 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
-function SplitedHeading({ children, setIsTextSplited }) {
+function SplitedHeading({ children, setIsSplited }) {
     const headingRef = useRef(null);
     const [headingContentArray, setHeadingContentArray] = useState([]);
-    const headingContent = children;
 
     useEffect(() => {
-        if (!headingContent) {
+        if (children == "" || !children || !setIsSplited) {
             return;
         }
-        const trimmedContent = headingContent.trim();
+        const trimmedContent = children.trim();
         const words = trimmedContent.split(" ");
         setHeadingContentArray(words);
-        if (setIsTextSplited && typeof setIsTextSplited === "function") {
-            setIsTextSplited(true);
-        }
-    }, [headingContent, setIsTextSplited]);
+        setIsSplited(true);
+    }, [children, setIsSplited]);
 
     const animation = {
         visible: {

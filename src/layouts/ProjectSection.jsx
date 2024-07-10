@@ -11,22 +11,23 @@ function ProjectSection() {
     const projectSectionRef = useRef(null);
     const heading = useRef(null);
     const { allProjects } = useData();
-
-    const [isTextSplited, setIsTextSplited] = useState(false);
-
     gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+    const [isSplited, setIsSplited] = useState(false);
 
     useGSAP(() => {
         const calculation = () => {
             const headingRectHeight = heading.current.getBoundingClientRect().height;
+            console.log(headingRectHeight);
             return `100% ${headingRectHeight + 48}px`;
         };
 
+        if (!isSplited) {
+            return;
+        }
+
         let responsiveGsap = gsap.matchMedia();
         responsiveGsap.add("(min-width:768px)", () => {
-            if (!isTextSplited) {
-                return;
-            }
             let tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: projectSectionRef.current,
@@ -37,8 +38,9 @@ function ProjectSection() {
                     pin: heading.current,
                 },
             });
+            console.log("animation added");
         });
-    }, [isTextSplited]);
+    }, [isSplited]);
 
     return (
         <article className="grid grid-cols-1 gap-8 md:grid-cols-[3fr_4fr] md:gap-16" ref={projectSectionRef}>
@@ -53,7 +55,7 @@ function ProjectSection() {
                     >
                         SHOWCASE OF WORK
                     </motion.h5>
-                    <SplitedHeading setIsTextSplited={setIsTextSplited}>
+                    <SplitedHeading setIsSplited={setIsSplited}>
                         Each project reflects my commitment to transforming creative ideas into engaging, interactive
                         interfaces, delivering high-quality digital solutions.
                     </SplitedHeading>
@@ -61,7 +63,7 @@ function ProjectSection() {
             </aside>
             <section className="flex flex-col gap-12">
                 {allProjects.map((project, index) => (
-                    <ProjectCard key={index} {...project} />
+                    <ProjectCard key={index} {...project} isSplited={isSplited} />
                 ))}
             </section>
         </article>

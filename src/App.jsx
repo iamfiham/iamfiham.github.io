@@ -3,8 +3,6 @@ import "./App.css";
 import Home from "./layouts/Home";
 import ProjectSection from "./layouts/ProjectSection";
 import Footer from "./layouts/Footer";
-import SkillSection from "./layouts/SkillSection";
-import ProjectDetail from "./components/ProjectDetail";
 import JourneySection from "./layouts/JourneySection";
 import SplitedHeading from "./components/SplitedHeading";
 

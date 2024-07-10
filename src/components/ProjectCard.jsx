@@ -4,13 +4,16 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-function ProjectCard({ heading, subHeading, video, url, year, type }) {
+function ProjectCard({ heading, subHeading, video, url, year, type, isSplited }) {
     const videoRef = useRef(null);
     const videoCaptionRef = useRef(null);
     const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
     gsap.registerPlugin(useGSAP, ScrollTrigger);
     useGSAP(() => {
+        if (!isSplited) {
+            return;
+        }
         const videoElement = videoRef.current;
         let isPlaying = false;
         const playVideo = () => {
@@ -34,7 +37,7 @@ function ProjectCard({ heading, subHeading, video, url, year, type }) {
         let videoTimeLine = gsap.timeline({
             scrollTrigger: {
                 trigger: videoRef.current,
-                start: "0% 80%",
+                start: "0% 90%",
                 end: "100% 10%",
                 scrub: false,
                 toggleActions: "play reverse play reverse",
@@ -86,7 +89,7 @@ function ProjectCard({ heading, subHeading, video, url, year, type }) {
             },
             0,
         );
-    });
+    }, [isSplited]);
     return (
         <article className="relative overflow-hidden">
             <figure className="relative mb-6 aspect-video w-full overflow-hidden rounded-lg">
