@@ -31,8 +31,8 @@ function JourneySection() {
                 clipPath: "inset(0% 0% 0% 0% round 0px)",
                 xPercent: 0,
                 autoAlpha: 1,
-                duration: 1.5,
-                ease: "power3.inOut",
+                duration: 2.5,
+                ease: "power4.inOut",
             },
         );
     });

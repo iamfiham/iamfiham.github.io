@@ -1,13 +1,13 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { IoIosLink } from "react-icons/io";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function ProjectCard({ heading, subHeading, video, url, year, type }) {
-    const card = useRef(null);
     const videoRef = useRef(null);
     const videoCaptionRef = useRef(null);
+    const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
     gsap.registerPlugin(useGSAP, ScrollTrigger);
     useGSAP(() => {
@@ -88,17 +88,26 @@ function ProjectCard({ heading, subHeading, video, url, year, type }) {
         );
     });
     return (
-        <article ref={card} className="relative overflow-hidden">
-            <figure className="mb-6 aspect-video w-full overflow-hidden rounded-lg">
+        <article className="relative overflow-hidden">
+            <figure className="relative mb-6 aspect-video w-full overflow-hidden rounded-lg">
                 <video
                     muted
                     loop
                     controls={false}
-                    className="pointer-events-none relative aspect-video w-full object-cover"
+                    className="pointer-events-none relative z-10 aspect-video w-full object-cover"
+                    style={{ opacity: isVideoLoaded ? "block" : "none" }}
                     ref={videoRef}
+                    onLoadedData={() => {
+                        setIsVideoLoaded(true);
+                    }}
                 >
                     <source src={video} />
                 </video>
+                {!isVideoLoaded && (
+                    <div className="absolute left-0 top-0 z-20 grid h-full w-full place-items-center bg-neutral-900">
+                        <span className="loader"></span>
+                    </div>
+                )}
             </figure>
             <figcaption className="grid w-full grid-cols-[3fr_1fr] gap-4" ref={videoCaptionRef}>
                 <div>
@@ -107,7 +116,7 @@ function ProjectCard({ heading, subHeading, video, url, year, type }) {
                 </div>
                 <div className="flex flex-col items-end">
                     <li className="mb-1 text-xs/none text-neutral-400">Year</li>
-                    <time datetime={year} className="mb-3 text-sm/snug font-medium text-neutral-200">
+                    <time dateTime={year} className="mb-3 text-sm/snug font-medium text-neutral-200">
                         {year}
                     </time>
                     <li className="mb-1 text-xs/none text-neutral-400">Type</li>
