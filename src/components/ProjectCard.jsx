@@ -3,8 +3,6 @@ import { IoIosLink } from "react-icons/io";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import useTouchDevice from "../hooks/useTouchDevice";
-import { PiHandTap } from "react-icons/pi";
 
 function ProjectCard({ heading, subHeading, video, url, year, type }) {
     const card = useRef(null);
@@ -50,7 +48,7 @@ function ProjectCard({ heading, subHeading, video, url, year, type }) {
         let videoCaptionTimeLine = gsap.timeline({
             scrollTrigger: {
                 trigger: videoCaptionRef.current,
-                start: "0% 80%",
+                start: "0% 90%",
                 end: "100% 10%",
                 scrub: false,
                 toggleActions: "play reverse play reverse",
@@ -61,22 +59,29 @@ function ProjectCard({ heading, subHeading, video, url, year, type }) {
             videoRef.current,
 
             {
-                clipPath: "inset(50% 50% 50% 50% round 8px)",
+                clipPath: "inset(0% 70% 0% 30% round 8px)",
+                autoAlpha: 0,
+                xPercent: -30,
             },
             {
                 clipPath: "inset(0% 0% 0% 0% round 8px)",
+                autoAlpha: 1,
+                xPercent: 0,
+
+                duration: 1.5,
+                ease: "power3.inOut",
             },
         );
 
         videoCaptionTimeLine.fromTo(
-            videoCaptionRef.current,
+            videoCaptionRef.current.children,
             {
                 autoAlpha: 0,
-                xPercent: -5,
+                xPercent: -30,
             },
             {
                 autoAlpha: 1,
-                duration: 0.7,
+                duration: 0.75,
                 xPercent: 0,
             },
             0,
@@ -84,25 +89,29 @@ function ProjectCard({ heading, subHeading, video, url, year, type }) {
     });
     return (
         <article ref={card} className="relative overflow-hidden">
-            <video
-                muted
-                loop
-                controls={false}
-                className="pointer-events-none relative z-10 mb-6 aspect-video w-full rounded-lg object-cover"
-                ref={videoRef}
-            >
-                <source src={video} />
-            </video>
-            <div className="grid grid-cols-[3fr_1fr] gap-4" ref={videoCaptionRef}>
+            <figure className="mb-6 aspect-video w-full overflow-hidden rounded-lg">
+                <video
+                    muted
+                    loop
+                    controls={false}
+                    className="pointer-events-none relative aspect-video w-full object-cover"
+                    ref={videoRef}
+                >
+                    <source src={video} />
+                </video>
+            </figure>
+            <figcaption className="grid w-full grid-cols-[3fr_1fr] gap-4" ref={videoCaptionRef}>
                 <div>
                     <h3 className="mb-3 text-base/snug font-medium text-neutral-200">{heading}</h3>
                     <p className="max-w-[400px] text-sm/snug text-neutral-400">{subHeading}</p>
                 </div>
                 <div className="flex flex-col items-end">
                     <li className="mb-1 text-xs/none text-neutral-400">Year</li>
-                    <li className="mb-3 text-sm/snug font-medium text-neutral-200">{year}</li>
+                    <time datetime={year} className="mb-3 text-sm/snug font-medium text-neutral-200">
+                        {year}
+                    </time>
                     <li className="mb-1 text-xs/none text-neutral-400">Type</li>
-                    <li className="mb-3 text-sm/snug font-medium text-neutral-200">{type}</li>
+                    <li className="mb-3 text-right text-sm/snug font-medium text-neutral-200">{type}</li>
                     <li className="mb-1 text-xs/none text-neutral-400">Link</li>
 
                     <a
@@ -118,7 +127,7 @@ function ProjectCard({ heading, subHeading, video, url, year, type }) {
                         </button>
                     </a>
                 </div>
-            </div>
+            </figcaption>
         </article>
     );
 }

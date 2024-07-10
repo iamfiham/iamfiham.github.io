@@ -23,7 +23,6 @@ function ProjectSection() {
         };
 
         let responsiveGsap = gsap.matchMedia();
-
         responsiveGsap.add("(min-width:768px)", () => {
             if (!isTextSplited) {
                 return;
@@ -42,9 +41,9 @@ function ProjectSection() {
     }, [isTextSplited]);
 
     return (
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-[3fr_4fr] md:gap-16" ref={projectSectionRef}>
-            <div>
-                <div ref={heading}>
+        <article className="grid grid-cols-1 gap-8 md:grid-cols-[3fr_4fr] md:gap-16" ref={projectSectionRef}>
+            <aside>
+                <section ref={heading}>
                     <motion.h5
                         initial={{ clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)" }}
                         whileInView={{ clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" }}
@@ -58,14 +57,14 @@ function ProjectSection() {
                         Each project reflects my commitment to transforming creative ideas into engaging, interactive
                         interfaces, delivering high-quality digital solutions.
                     </SplitedHeading>
-                </div>
-            </div>
-            <div className="flex flex-col gap-12">
+                </section>
+            </aside>
+            <section className="flex flex-col gap-12">
                 {allProjects.map((project, index) => (
                     <ProjectCard key={index} {...project} />
                 ))}
-            </div>
-        </div>
+            </section>
+        </article>
     );
 }
 

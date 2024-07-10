@@ -110,11 +110,10 @@ function Home() {
 
     return (
         // <div className="flex min-h-svh flex-col" ref={homeSectionRef}>
-        <section className="flex flex-col" ref={homeSectionRef}>
+        <main className="flex min-h-svh flex-col" ref={homeSectionRef}>
             <NavBar />
             <div className="h-16 sm:h-20 md:h-28" />
-
-            <div className="grid grid-cols-1 justify-items-center gap-12">
+            <section className="grid grid-cols-1 justify-items-center gap-12">
                 {headingContentArray.length > 0 && (
                     <motion.h2
                         initial="hidden"
@@ -135,7 +134,7 @@ function Home() {
                         ))}
                     </motion.h2>
                 )}
-                <div
+                <figure
                     className="group relative aspect-square w-full max-w-[1280px] overflow-hidden rounded-lg sm:aspect-video"
                     ref={imageContainerRef}
                 >
@@ -145,15 +144,15 @@ function Home() {
                         className="absolute bottom-0 left-0 h-[160%] w-full object-cover object-center"
                         ref={homeImageRef}
                     />
-                    <div className="absolute left-0 top-0 z-20 grid h-full w-full justify-center bg-gradient-to-b from-black/50 to-black/70 opacity-0 transition-all duration-500 group-hover:opacity-100">
+                    <figcaption className="absolute left-0 top-0 z-20 grid h-full w-full justify-center bg-gradient-to-b from-black/50 to-black/70 opacity-0 transition-all duration-500 group-hover:opacity-100">
                         <span ref={homeImageTextRef} className="flex h-full flex-col justify-center">
                             <p className="mb-2 text-sm/none text-neutral-400">Freelancer</p>
                             <h3 className="text-base/none font-medium">2021 - Present Day</h3>
                         </span>
-                    </div>
-                </div>
-            </div>
-        </section>
+                    </figcaption>
+                </figure>
+            </section>
+        </main>
     );
 }
 

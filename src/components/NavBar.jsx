@@ -29,10 +29,9 @@ function NavBar() {
     });
 
     return (
-        <div className="flex items-center gap-3 px-0 py-4 sm:px-4" ref={navBarRef}>
+        <nav className="flex items-center gap-3 px-0 py-4 sm:px-4" ref={navBarRef}>
             <img src={logo} alt="" className="w-[14px]" />
             <h2 className="mr-auto font-opensans text-base/none font-semibold tracking-tight text-neutral-200">
-                {" "}
                 Mohamed Fiham
             </h2>
             <ul className="hidden gap-8 text-sm/none text-neutral-300 sm:flex">
@@ -41,11 +40,13 @@ function NavBar() {
                         Email <GoArrowRight className="-rotate-45 transition-all duration-300 group-hover:rotate-0" />
                     </li>
                 </a>
-                <li className="group flex cursor-pointer items-center gap-1 font-medium transition-all duration-300 hover:opacity-70">
-                    Read.cv <GoArrowRight className="-rotate-45 transition-all duration-300 group-hover:rotate-0" />
-                </li>
+                <a href="" target="_blank" rel="noopener noreferrer">
+                    <li className="group flex cursor-pointer items-center gap-1 font-medium transition-all duration-300 hover:opacity-70">
+                        Read.cv <GoArrowRight className="-rotate-45 transition-all duration-300 group-hover:rotate-0" />
+                    </li>
+                </a>
             </ul>
-        </div>
+        </nav>
     );
 }
 

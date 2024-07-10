@@ -1,29 +1,32 @@
-import video from "../assets/projects/video.webm";
+import onlineCv from "../assets/projects/online-cv.mp4";
+import portfolio from "../assets/projects/portfolio.mp4";
+import note from "../assets/projects/note.mp4";
 
 function useData() {
     const allProjects = [
         {
-            video: video,
+            video: note,
             heading: "Note Taking App",
             subHeading: "Built with React for Seamless User Experience and Efficient Information Organization",
-            year: "2021",
-            type: "Softwere",
+            year: "2023",
+            type: "Application",
             url: "https://iamfiham.github.io/note-taking-app/",
         },
         {
-            video: video,
-            heading: "E-Commerce Website",
+            video: onlineCv,
+            heading: "Online CV",
             subHeading:
-                "Leveraging React and Firebase for Dynamic Shopping Experiences and Seamlessly Managed Transactions",
+                "Discover a Personalized CV Website Powered by React, Showcasing Skills, Experience, and Achievements!",
             year: "2022",
-            type: "Softwere",
-            url: "https://iamfiham.github.io/e-commerce/",
+            type: "Personal Website",
+            url: "https://iamfiham.github.io/online-cv/",
         },
         {
-            video: video,
-            heading: "Portfolio Site",
-            subHeading: "Crafted with React for a Dynamic and Engaging Presentation of Skills and Projects",
-            year: "2023",
+            video: portfolio,
+            heading: "Personal Website ",
+            subHeading:
+                "Crafted with Html,CSS and Javascript for a Dynamic and Engaging Presentation of Skills and Projects",
+            year: "2021",
             type: "Softwere",
             url: "https://iamfiham.github.io/portfolio/",
         },
