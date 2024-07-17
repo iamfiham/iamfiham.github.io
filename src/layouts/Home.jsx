@@ -15,7 +15,7 @@ function Home() {
     const headingRef = useRef(null);
     const [headingContentArray, setHeadingContentArray] = useState([]);
     const headingContent =
-        "I'm a Mohamed Fiham — based frontend developer. I specialise in crafting seamless and interactive web experiences with talented collaborators.";
+        "I'm Mohamed Fiham — frontend developer. I specialize in crafting seamless and interactive web experiences with talented collaborator";
 
     useLayoutEffect(() => {
         const trimmedContent = headingContent.trim();

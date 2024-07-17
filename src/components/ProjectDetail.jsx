@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import  { useRef } from "react";
 import image from "../assets/image.png";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -43,7 +43,7 @@ function ProjectDetail() {
             </h2>
 
             <div className="mb-20 grid grid-cols-2 items-start gap-16">
-                <h3 className="text-2xl font-medium tracking-tight" ref={element}>
+                           <h3 className="text-2xl font-medium tracking-tight" ref={element}>
                     Combining the old and new.
                 </h3>
                 <p className="text-base text-neutral-400" ref={target}>
@@ -51,7 +51,6 @@ function ProjectDetail() {
                     project. <br /> <br />
                     Instead, custom components were designed on a per-need basis, and
                     <span className="text-glow font-medium text-neutral-300">
-                        {" "}
                         maximized the use of atomic Material Design elements and characteristics.
                     </span>
                     <br /> <br />

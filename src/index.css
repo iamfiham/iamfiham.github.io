@@ -48,7 +48,7 @@ html {
         padding-inline: 0.1rem;
     }
     .column-gap {
-        column-gap: 0.3rem;
+        column-gap: 0.15rem;
     }
     .row-gap {
         row-gap: 0rem;

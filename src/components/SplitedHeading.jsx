@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 function SplitedHeading({ children, setIsSplited }) {
@@ -52,7 +52,7 @@ function SplitedHeading({ children, setIsSplited }) {
                         key={index}
                         variants={noteCardVariants}
                         transition={{ ease: "easeOut", duration: 0.5 }}
-                        className="negative-margin inline-block text-3xl/[1.2] font-medium tracking-tighter text-neutral-200"
+                        className="negative-margin inline-block text-2xl/[1.3] font-medium tracking-tighter text-neutral-200"
                     >
                         {word}
                     </motion.span>
