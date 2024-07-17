@@ -19,6 +19,7 @@ function Footer() {
                 start: "0% 100%",
                 end: "100% 0%",
                 scrub: false,
+                toggleActions: "play reverse play reverse",
             },
         });
         tl.fromTo(
@@ -43,6 +44,7 @@ function Footer() {
                 start: "0% 100%",
                 end: "100% 0%",
                 scrub: false,
+                toggleActions: "play reverse play reverse",
             },
         });
         tl2.fromTo(
